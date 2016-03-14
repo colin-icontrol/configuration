@@ -50,5 +50,5 @@ logging:
     level:
       com.icontrol: 'DEBUG'
       #org.apache.http.wire: 'DEBUG'
-config:
+alarmservice:
   name: "configured."
