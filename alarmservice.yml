@@ -51,4 +51,4 @@ logging:
       com.icontrol: 'DEBUG'
       #org.apache.http.wire: 'DEBUG'
 alarmservice:
-  name: "configured."
+  name: configured
