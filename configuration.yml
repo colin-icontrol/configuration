@@ -1,10 +1,10 @@
 spring:
   profiles:
-    active: development
+    active: docker
 ---
-
 spring:
-  profiles: cloud
+  profiles:
+    name: cloud
   cloud:
     config:
       discovery:
@@ -16,55 +16,38 @@ spring:
           repositories:
             movie:
               label: master
+              profiles: cloud
             rating:
               label: master
+              profiles: cloud
 server:
   port: 8888
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
-  health:
-    sensitive: false
-eureka:
-  instance:
-    hostname: config-99.cfapps.io
-    nonSecurePort: 80
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://discovery-77.cfapps.io/eureka/
-
+info:
+  description: Config Server
+  url: https://github.com/colin-icontrol/alarmcomposition
 ---
-
 spring:
-  profiles: development
+  application:
+    name: configserver
+  profiles:
+    name: docker
   cloud:
     config:
+      discovery:
+        enabled: true
       server:
         git:
-          uri: https://github.com/csmiley/configuration
+          uri: https://github.com/colin-icontrol/configuration
         health:
           repositories:
             movie:
               label: master
+              profiles: cloud
+            rating:
+              label: master
+              profiles: cloud
 server:
   port: 8888
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
-  health:
-    sensitive: false
-eureka:
-  instance:
-    hostname: configserver
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
-
+info:
+  description: Config Server
+  url: https://github.com/colin-icontrol/alarmcomposition

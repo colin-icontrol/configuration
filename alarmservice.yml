@@ -28,6 +28,8 @@ eureka:
 
 spring:
   profiles: docker
+  application:
+    name: alarmservice
 server:
   port: 10000
 endpoints:
