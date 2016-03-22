@@ -14,11 +14,11 @@ spring:
           uri: https://github.com/colin-icontrol/configuration
         health:
           repositories:
-            movie:
+            alarmservice:
               label: master
-              profiles: cloud
-            rating:
-              label: master
+              profiles: docker
+            discovery:
+              label: docker
               profiles: cloud
 server:
   port: 8888
@@ -40,12 +40,12 @@ spring:
           uri: https://github.com/colin-icontrol/configuration
         health:
           repositories:
-            movie:
+            alarmservice:
               label: master
-              profiles: cloud
-            rating:
+              profiles: docker
+            discovery:
               label: master
-              profiles: cloud
+              profiles: docker
 server:
   port: 8888
 info:
