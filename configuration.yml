@@ -19,7 +19,7 @@ spring:
               profiles: docker
             discovery:
               label: docker
-              profiles: cloud
+              profiles: docker
 server:
   port: 8888
 info:
